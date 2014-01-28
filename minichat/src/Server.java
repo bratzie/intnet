@@ -2,7 +2,6 @@
  * Created by bratzie on 24/01/14.
  */
 
-import java.io.*;
 import java.util.*;
 import java.net.Socket;
 import java.net.ServerSocket;
@@ -44,7 +43,7 @@ public class Server implements Runnable {
 
     public void sendToAll (String message) {
         System.out.println("Message recieved: " + message);
-        for (serverThread client : Clients) {
+        for (ServerThread client : clients) {
             client.send(message);
         }
     }
