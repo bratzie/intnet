@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
+import java.io.*;
 import java.net.Socket;
 
 /**
@@ -17,6 +15,7 @@ public class Client implements Runnable {
     private ClientThread client;
 
     public static void main(String[] args) throws Exception {
+        new Client(args[0], Integer.parseInt(args[1]), args[2]);
     }
 
     public Client(String host, int port, String alias) throws Exception {
@@ -24,7 +23,7 @@ public class Client implements Runnable {
         socket = new Socket(host, port);
         in = new BufferedReader(new InputStreamReader(System.in));
         out = new PrintStream(socket.getOutputStream());
-        client = new ClientThread(socket);
+        client = new ClientThread(socket, alias);
         client.start();
         thread = new Thread(this);
         thread.start();
@@ -36,7 +35,7 @@ public class Client implements Runnable {
         while (true) {
             try {
                 message = in.readLine();
-                out.println(message);
+                out.println(alias + ": " + message);
             } catch (Exception e) {
                 System.out.println(e);
             }

@@ -1,11 +1,9 @@
+import java.util.*;
+import java.net.*;
+
 /**
  * Created by bratzie on 24/01/14.
  */
-
-import java.util.*;
-import java.net.Socket;
-import java.net.ServerSocket;
-
 public class Server implements Runnable {
     private final int PORT = 1234;
     private ArrayList<ServerThread> clients;
@@ -38,7 +36,7 @@ public class Server implements Runnable {
         ServerThread st = new ServerThread(this, socket);
         st.start();
         clients.add(st);
-        System.out.println();
+        System.out.println("Client " + st.getName() + " joined.");
     }
 
     public void sendToAll (String message) {

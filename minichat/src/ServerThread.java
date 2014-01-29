@@ -1,10 +1,9 @@
-/**
- * Created by bratzie on 27/01/14.
- */
-
 import java.io.*;
 import java.net.*;
 
+/**
+ * Created by bratzie on 27/01/14.
+ */
 public class ServerThread extends Thread {
     private Server server;
     private Socket socket;
