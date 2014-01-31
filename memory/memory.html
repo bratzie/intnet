@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Epic Awesome Memory Game</title>
+
+		<meta charset="utf-8"
+		name="author" content="Folke#Bratt"
+		name="description" content="The best memory game ever made."
+		name="keywords" content="fun, game, memory, blonde, girl, sweden" />
+
+		<!-- FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="style.css" />
+
+		<!-- JS -->
+		<script type="text/javascript" src="memory.js"></script>	
+	</head>
+
+	<body onload="placeWords()">
+		<span class="p1score" id="p1name">Player 1:</span>
+		<span class="p1score" id="p1score">0</span>
+		<span class="p2score" id="p2score">0</span>
+		<span class="p2score" id="p2name">Player 2:</span>
+		<div class="centered">
+			<table border="1" padding="10" margin="10">
+				<tr>
+					<td id="1" onclick="clickWord(this)"><span id="1"></span></td>
+					<td id="2" onclick="clickWord(this)"><span id="2"></span></td>
+					<td id="3" onclick="clickWord(this)"><span id="3"></span></td>
+					<td id="4" onclick="clickWord(this)"><span id="4"></span></td>
+				</tr>
+				<tr>
+					<td id="5" onclick="clickWord(this)"><span id="5"></span></td>
+					<td id="6" onclick="clickWord(this)"><span id="6"></span></td>
+					<td id="7" onclick="clickWord(this)"><span id="7"></span></td>
+					<td id="8" onclick="clickWord(this)"><span id="8"></span></td>
+				</tr>
+				<tr>
+					<td id="9" onclick="clickWord(this)"><span id="9"></span></td>
+					<td id="10" onclick="clickWord(this)"><span id="10"></span></td>
+					<td id="11" onclick="clickWord(this)"><span id="11"></span></td>
+					<td id="12" onclick="clickWord(this)"><span id="12"></span></td>
+				</tr>
+				<tr>
+					<td id="13" onclick="clickWord(this)"><span id="13"></span></td>
+					<td id="14" onclick="clickWord(this)"><span id="14"></span></td>
+					<td id="15" onclick="clickWord(this)"><span id="15"></span></td>
+					<td id="16" onclick="clickWord(this)"><span id="16"></span></td>
+				</tr>
+			</table>
+			<button class="centered" onclick="placeWords()">RESTART</button>
+		</div>
+	</body>
+</html>
