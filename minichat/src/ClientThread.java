@@ -21,8 +21,8 @@ public class ClientThread extends Thread {
         while (true) {
             try {
                 message = in.readLine();
-                String filter = message.split("\\s")[0];
-                if (!filter.equals(alias + ":")) {
+                String filter = message.split(": ")[0];
+                if (!filter.equals(alias)) {
                     System.out.println(message);
                 }
             } catch (Exception e) {

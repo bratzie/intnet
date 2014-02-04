@@ -35,6 +35,9 @@ public class Client implements Runnable {
         while (true) {
             try {
                 message = in.readLine();
+                if (message == null) {
+                    continue;
+                }
                 out.println(alias + ": " + message);
             } catch (Exception e) {
                 System.out.println(e);

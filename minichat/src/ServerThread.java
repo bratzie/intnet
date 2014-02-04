@@ -29,11 +29,17 @@ public class ServerThread extends Thread {
     @Override
     public void run() {
         // initialize string to avoid sending null value.
-        String message = "";
+        String message = "Someone: ";
         while(true) {
             try {
                 message = in.readLine();
+                if (message == null) {
+                    server.sendToAll("Someone has disconnected.");
+                    break;
+                }
                 server.sendToAll(message);
+            } catch (IOException e) {
+                break;
             } catch (Exception e) {
                 System.out.println(e);
             }
