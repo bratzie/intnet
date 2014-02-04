@@ -22,7 +22,7 @@ function placeWords() {
 		}
 	};
 
-	alert("The player with the red name wins the game all the time.");
+	alert("The orange name indicates the current turn.");
 
 	document.getElementById("p1name").style.color = "#ccaa11";
 	document.getElementById("p2name").style.color = "#ffffff";
