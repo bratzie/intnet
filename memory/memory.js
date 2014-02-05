@@ -1,33 +1,39 @@
-// list of memory words
-var words = new Array("Horse", "Cart", "Ninja", "Sword", "Ailurophile", "Comely", "Beleaguer", "Embrocation");
-var hit = new Array(0, 0, 0, 0, 0, 0, 0, 0);
-
 var player1turn = true;
-
 var player1score = 0;
 var player2score = 0;
 
-function placeWords() {
+var hiddenPictures = new Array();
+
+function assignPictures() {
+
+// list of memory words
+var pictures = new Array("resources/horse.jpg", "resources/cart.jpg", "resources/ninja.jpg", 
+	"resources/sword.jpg", "resources/ailurophile.jpg", "resources/comely.jpg", 
+	"resources/beleaguer.jpg", "resources/embrocation.jpg");
+
+var hit = new Array(0, 0, 0, 0, 0, 0, 0, 0);
+
+// clearing the array
+hiddenPictures.length = 0;
 
 	for (var i = 1; i <= 16; i++) {
-		var placement = Math.floor(Math.random()*(words.length));
-		document.getElementById(i).textContent = words[placement];
-		document.getElementById(i).style.color = "#333333";
+		var placement = Math.floor(Math.random()*(pictures.length));
+		// alert("Assigned " + pictures[placement] + " to spot " + i);
+		//document.getElementById(i).src = pictures[placement];
+		hiddenPictures.push[i] = pictures[placement];
 
 		if (hit[placement] < 1) {
 			hit[placement]++;
 		} else {
-			words.splice(placement, 1);
+			pictures.splice(placement, 1);
 			hit.splice(placement, 1);
 		}
 	};
 
-	alert("The orange name indicates the current turn.");
+	alert("The player with the orange name indicates the current turn.");
 
 	document.getElementById("p1name").style.color = "#ccaa11";
 	document.getElementById("p2name").style.color = "#ffffff";
-
-
 }
 
 var firstClick = 0;

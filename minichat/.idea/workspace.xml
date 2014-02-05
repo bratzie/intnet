@@ -67,7 +67,7 @@
       <file leaf-file-name="Server.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="23" selection-start="1190" selection-end="1194" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="795">
+            <state line="44" column="23" selection-start="1190" selection-end="1194" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="810">
               <folding />
             </state>
           </provider>
@@ -76,7 +76,7 @@
       <file leaf-file-name="ServerThread.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ServerThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="5" selection-start="533" selection-end="533" vertical-scroll-proportion="0.30501932" vertical-offset="18" max-vertical-offset="795">
+            <state line="22" column="33" selection-start="621" selection-end="621" vertical-scroll-proportion="0.38223937" vertical-offset="18" max-vertical-offset="795">
               <folding />
             </state>
           </provider>
@@ -86,9 +86,7 @@
         <entry file="file://$PROJECT_DIR$/src/Client.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="20" column="62" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="795">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -96,7 +94,7 @@
       <file leaf-file-name="ClientThread.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClientThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="48" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+            <state line="14" column="48" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="585">
               <folding />
             </state>
           </provider>
@@ -151,6 +149,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -185,7 +184,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -235,19 +233,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -273,6 +258,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -418,6 +416,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerThread.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="5" selection-start="533" selection-end="533" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="62" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClientThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="48" selection-start="392" selection-end="392" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="23" selection-start="1190" selection-end="1194" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ServerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="26" selection-start="1053" selection-end="1053" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="810">
           <folding />
         </state>
@@ -426,9 +452,7 @@
     <entry file="file://$PROJECT_DIR$/src/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="38" selection-start="1051" selection-end="1051" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="795">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -475,15 +499,13 @@
     <entry file="file://$PROJECT_DIR$/src/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="62" selection-start="532" selection-end="532" vertical-scroll-proportion="0.0" vertical-offset="18" max-vertical-offset="795">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ServerThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="5" selection-start="533" selection-end="533" vertical-scroll-proportion="0.30501932" vertical-offset="18" max-vertical-offset="795">
+        <state line="22" column="33" selection-start="621" selection-end="621" vertical-scroll-proportion="0.38223937" vertical-offset="18" max-vertical-offset="795">
           <folding />
         </state>
       </provider>
