@@ -22,7 +22,7 @@ public class Guessbot {
         String cookie = ""; // get a cookie and save it so we can send it back later
         int sum = 0;
         final int numberOfGuesses = 100;
-        final int numberOfGames = 10;
+        final int numberOfGames = 100;
         int gamesPlayed = 0;
 
         for (gamesPlayed = 0; gamesPlayed < numberOfGames;) {
@@ -41,7 +41,7 @@ public class Guessbot {
                 String guess = "/?nr=" + i;
 
                 try {
-                    url = new URL("http","130.229.128.247",8080,guess);
+                    url = new URL("http",args[0],Integer.parseInt(args[1]),guess);
                     con = (HttpURLConnection)url.openConnection();
 
                     con.setRequestProperty("Cookie", cookie);
