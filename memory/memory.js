@@ -3,7 +3,7 @@ var player1score = 0;
 var player2score = 0;
 
 var hiddenPictures = new Array();
-
+var questionMark = "resources/questionmark.jpg";
 function assignPictures() {
 
 // list of memory words
@@ -13,15 +13,22 @@ var pictures = new Array("resources/horse.jpg", "resources/cart.jpg", "resources
 
 var hit = new Array(0, 0, 0, 0, 0, 0, 0, 0);
 
-// clearing the array
+// reseting the game
 hiddenPictures.length = 0;
+firstClick = 0;
+activeWords.length = 0;
+takenWords.length = 0;
+player1turn = true;
+player1score = 0;
+player2score = 0;
+document.getElementById("p1score").textContent = player1score;
+document.getElementById("p2score").textContent = player2score;
 
 	for (var i = 1; i <= 16; i++) {
 		var placement = Math.floor(Math.random()*(pictures.length));
-		// alert("Assigned " + pictures[placement] + " to spot " + i);
-		//document.getElementById(i).src = pictures[placement];
-		hiddenPictures.push[i] = pictures[placement];
-
+		//alert("Assigned " + pictures[placement] + " to spot " + i);
+		document.getElementById(i).src = questionMark;
+		hiddenPictures[i] = pictures[placement];
 		if (hit[placement] < 1) {
 			hit[placement]++;
 		} else {
@@ -48,11 +55,11 @@ function clickWord(el) {
 	}
 
 	if (firstClick == 0) {
-		document.getElementById(el.id).style.color = "#ffffff";
+		document.getElementById(el.id).src = hiddenPictures[el.id];
 		activeWords.push(el.id);
 		firstClick++;
 	} else if (firstClick == 1) {
-		document.getElementById(el.id).style.color = "#ffffff";
+		document.getElementById(el.id).src = hiddenPictures[el.id];
 		activeWords.push(el.id);
 
 		if (activeWords[0] == activeWords[1]) {
@@ -62,8 +69,8 @@ function clickWord(el) {
 
 		firstClick++;
 
-		var firstWord = document.getElementById(activeWords[0]).textContent;
-		var secondWord = document.getElementById(activeWords[1]).textContent;
+		var firstWord = document.getElementById(activeWords[0]).src;
+		var secondWord = document.getElementById(activeWords[1]).src;
 
 		if (firstWord == secondWord) { 
 			// wods match, add them to takenWords and reset. Do not change colors.
@@ -82,8 +89,8 @@ function clickWord(el) {
 		};
 	} else { 
 		// words do not match, change color to background color and reset.
-		document.getElementById(activeWords[1]).style.color = "#333333";
-		document.getElementById(activeWords[0]).style.color = "#333333";
+		document.getElementById(activeWords[1]).src = questionMark;
+		document.getElementById(activeWords[0]).src = questionMark;
 		activeWords.length = 0;
 		firstClick = 0;
 
