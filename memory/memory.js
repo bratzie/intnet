@@ -3,7 +3,7 @@ var player1score = 0;
 var player2score = 0;
 
 var hiddenPictures = new Array();
-var questionMark = "resources/questionmark.jpg";
+var questionMark = "resources/questionmark.png";
 function assignPictures() {
 
 // list of memory words
