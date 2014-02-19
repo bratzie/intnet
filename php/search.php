@@ -13,7 +13,28 @@ if (!$link) {
 </head>
 <body>
 
-<form name="Välj Bostad">
+
+<script language="javascript">
+function setCookie(form){
+	var rum_min = form.rum_min.value;
+	var rum_max = form.rum_max.value;
+	var area_min = form.area_min.value;
+	var area_max = form.area_max.value;
+	var pris_min = form.pris_min.value;
+	var pris_max = form.pris_max.value;
+	var avgift_min = form.avgift_min.value;
+	var avgift_max = form.avgift_max.value;
+	var lan = form.lan.value;
+	$objekttyp = form.objekttyp.value;
+	
+	document.cookie="rum_min="+rum_min+";rum_max="+rum_max+";area_min="+area_min+";area_max="+area_max+";pris_min="+pris_min+";pris_max="+pris_max+";avgift_min="+avgift_min+";avgift_max="+avgift_max+";lan="+lan+";objektyp="+objekttyp+"; expires=Thu, 18 Dec 2019 12:00:00 GMT";
+	
+ return true;
+}
+</script>	
+	
+
+<form method="post" name="Välj Bostad" action="result.php" onsubmit="return setCookie(this)">
 <table>
 	<tr>
 		<td>
