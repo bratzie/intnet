@@ -81,7 +81,7 @@ EOL;
 <tr>
 <td>
 Object Typ</td>
-<td><select>
+<td><select name = "objecttyp">
 <?php
 
 $sqlPopulateobjekttyp='SELECT objekttyp FROM bostader group by objekttyp';
