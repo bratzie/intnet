@@ -1,8 +1,11 @@
 <?php 
-if(!empty($_COOKIE)) { // check if there's a cookie
-
+if(!isset($_COOKIE)) { // check if there's a cookie
+	echo "no cookie for us? NO BOSTÄDER FOR YOU!";
+} else {
+	$lan = $_COOKIE['lan']
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,7 @@ if(!empty($_COOKIE)) { // check if there's a cookie
 	<script type="text/javascript" src="./jquery.tablesorter/jquery.tablesorter.js"></script>
 </head>
 <body>
+	<h2>Mattias och Bratt fixar fastigheter</h2>
 	<table id="myTable" class="tablesorter">
 		<thead>
 			<tr> <!-- 7 headers -->
@@ -29,6 +33,7 @@ if(!empty($_COOKIE)) { // check if there's a cookie
 			// adding rows and stuff with data
 			?>
 		</tbody>
+		<?php print_r($_COOKIE)) ?>
 </body>
 </html>>
 
