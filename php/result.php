@@ -2,7 +2,7 @@
 if(!isset($_COOKIE)) { // check if there's a cookie
 	echo "no cookie for us? NO BOSTÄDER FOR YOU!";
 } else {
-	$lan = $_COOKIE['lan']
+	$lan = $_COOKIE['lan'];
 }
 ?>
 
@@ -33,7 +33,7 @@ if(!isset($_COOKIE)) { // check if there's a cookie
 			// adding rows and stuff with data
 			?>
 		</tbody>
-		<?php print_r($_COOKIE)) ?>
+		<?php print_r($_COOKIE); ?>
 </body>
 </html>>
 
