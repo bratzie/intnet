@@ -28,8 +28,18 @@ function setCookie(form){
 	var avgift_max = form.avgift_max.value;
 	var lan = form.lan.value;
 	var objekttyp = form.objekttyp.value;
-	var cookie = "rum_min = "+rum_min+" ; rum_max = "+rum_max+'; area_min='+area_min+'; area_max='+area_max+'; pris_min='+pris_min+'; pris_max='+pris_max+'; avgift_min='+avgift_min+'; avgift_max='+avgift_max+'; lan='+lan+'; objektyp='+objekttyp+'; expires=Wed, 18 Dec 2019 12:00:00 GMT';
-	document.cookie= cookie;
+	
+	document.cookie= "rum_min = "+rum_min+ ";";
+	document.cookie= "rum_max = "+rum_max+" ;";
+	document.cookie= "area_min = "+area_min+" ;";
+	document.cookie= "area_max = "+area_max+" ;";
+	document.cookie= "pris_min = "+pris_min+" ;";
+	document.cookie= "pris_max = "+pris_max+" ;";
+	document.cookie= "avgift_min = "+avgift_min+" ;";
+	document.cookie= "avgift_max = "+avgift_max+" ;";
+	document.cookie= "lan = "+lan+" ;";
+	document.cookie= "objekttyp = "+objekttyp+" ;";
+	
 	alert(dokument.cookie);
 	
  return true;
@@ -47,7 +57,7 @@ function setCookie(form){
 <input type=number name="rum_min" min=1 max=10 value=1>
 	</td>
 	<td>
-<input type=number name="rum_max" min=1 max=10 value=1>
+<input type=number name="rum_max" min=1 max=10 value=10>
 	</td>
 </tr>
 	<tr>
@@ -58,7 +68,7 @@ function setCookie(form){
 <input type=number name="area_min" min=1 max=1000 value=1>
 	</td>
 	<td>
-<input type=number name="area_max" min=1 max=1000 value=1>
+<input type=number name="area_max" min=1 max=1000 value=1000>
 	</td>
 </tr>
 	<tr>
@@ -69,7 +79,7 @@ function setCookie(form){
 <input type=number name="pris_min" min=1 max=1000000000 value=1>
 	</td>
 	<td>
-<input type=number name="pris_max" min=1 max=1000000000 value=1>
+<input type=number name="pris_max" min=1 max=1000000000 value=1000000000>
 	</td>
 </tr>
 	<tr>
@@ -80,7 +90,7 @@ function setCookie(form){
 <input type=number name="avgift_min" min=1 max=100000 value=1>
 	</td>
 	<td>
-<input type=number name="avgift_max" min=1 max=100000 value=1> 
+<input type=number name="avgift_max" min=1 max=100000 value=100000> 
 	</td>
 </tr>
 <tr>
