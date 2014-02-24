@@ -45,17 +45,35 @@ function setCookie(form){
 </script>	
 	
 
-<form method="post" name="Välj Bostad" id="search_form" action="result.php" onsubmit="return setCookie(this)">
+<form method="post" name="Välj Bostad" action="result.php" onsubmit="return setCookie(this)">
 <table>
 	<tr>
 		<td>
 			Antal rum
 		</td>
 		<td>
-<input type=number id="rum_min" name="rum_min" min=1 max=10 value=1>
+<input type=number name="rum_min" min=1 max=10 value=<?php 
+        if(isset($_COOKIE['rum_min']))
+        {
+            echo $_COOKIE['rum_min'];
+        } 
+        else 
+        {
+            echo "1";
+        }
+    ?>>
 	</td>
 	<td>
-<input type=number name="rum_max" min=1 max=10 value=10>
+<input type=number name="rum_max" min=1 max=10 value=<?php 
+        if(isset($_COOKIE['rum_max']))
+        {
+            echo $_COOKIE['rum_max'];
+        } 
+        else 
+        {
+            echo "10";
+        }
+    ?>>
 	</td>
 </tr>
 	<tr>
@@ -63,10 +81,28 @@ function setCookie(form){
 			Bostads Areas
 		</td>
 		<td>
-<input type=number name="area_min" min=1 max=1000 value=1>
+<input type=number name="area_min" min=1 max=1000 value=<?php 
+        if(isset($_COOKIE['area_min']))
+        {
+            echo $_COOKIE['area_min'];
+        } 
+        else 
+        {
+            echo "1";
+        }
+    ?>>
 	</td>
 	<td>
-<input type=number name="area_max" min=1 max=1000 value=1000>
+<input type=number name="area_max" min=1 max=1000 value=<?php 
+        if(isset($_COOKIE['area_max']))
+        {
+            echo $_COOKIE['area_max'];
+        } 
+        else 
+        {
+            echo "1000";
+        }
+    ?>>
 	</td>
 </tr>
 	<tr>
@@ -74,10 +110,28 @@ function setCookie(form){
 			Pris
 		</td>
 		<td>
-<input type=number name="pris_min" min=1 max=1000000000 value=1>
+<input type=number name="pris_min" min=1 max=1000000000 value=<?php 
+        if(isset($_COOKIE['pris_min']))
+        {
+            echo $_COOKIE['pris_min'];
+        } 
+        else 
+        {
+            echo "1";
+        }
+    ?>>
 	</td>
 	<td>
-<input type=number name="pris_max" min=1 max=1000000000 value=1000000000>
+<input type=number name="pris_max" min=1 max=1000000000 value=<?php 
+        if(isset($_COOKIE['pris_max']))
+        {
+            echo $_COOKIE['pris_max'];
+        } 
+        else 
+        {
+            echo "1000000000";
+        }
+    ?>>
 	</td>
 </tr>
 	<tr>
@@ -85,25 +139,56 @@ function setCookie(form){
 			Avgift
 		</td>
 		<td>
-<input type=number name="avgift_min" min=1 max=100000 value=1>
+<input type=number name="avgift_min" min=1 max=100000 value=<?php 
+        if(isset($_COOKIE['avgift_min']))
+        {
+            echo $_COOKIE['avgift_min'];
+        } 
+        else 
+        {
+            echo "1";
+        }
+    ?>>
 	</td>
 	<td>
-<input type=number name="avgift_max" min=1 max=100000 value=100000> 
+<input type=number name="avgift_max" min=1 max=100000 value=<?php 
+        if(isset($_COOKIE['avgift_max']))
+        {
+            echo $_COOKIE['avgift_max'];
+        } 
+        else 
+        {
+            echo "100000";
+        }
+    ?>>
 	</td>
 </tr>
 <tr>
 <td>
-LÃ¤n</td>
+L&#228;n</td>
 <td><select name = "lan">
 <?php
 $sqlPopulateLan='SELECT lan FROM bostader group by lan';
+$cookieValue = 'null';
+if(isset($_COOKIE['lan'])){
+	$cookieValue = $_COOKIE['lan'];
+}	
 
 $rs=$link->query($sqlPopulateLan);
 	while($row = $rs->fetch_row()){
 		$lan = $row[0];
-   echo <<<EOL
+		        if($lan == $cookieValue)
+        {
+			   echo <<<EOL
+<option selected="selected">$lan</option>
+EOL;
+        } 
+        else 
+        {
+			echo <<<EOL
 <option>$lan</option>
 EOL;
+        }
 }
 ?> 
 
@@ -114,14 +199,27 @@ Object Typ</td>
 <?php
 
 $sqlPopulateobjekttyp='SELECT objekttyp FROM bostader group by objekttyp';
+$cookieValue = 'null';
+if(isset($_COOKIE['objekttyp'])){
+	$cookieValue = $_COOKIE['objekttyp'];
+}	
 
 $rs=$link->query($sqlPopulateobjekttyp);
 	while($row = $rs->fetch_row()){
 		$objekttyp = $row[0];
-   echo <<<EOL
+		        if($objekttyp == $cookieValue)
+        {
+			   echo <<<EOL
+<option selected="selected">$objekttyp</option>
+EOL;
+        } 
+        else 
+        {
+			echo <<<EOL
 <option>$objekttyp</option>
 EOL;
-}
+        }
+	}
 ?> 
 
 </select></td></tr>
@@ -131,10 +229,5 @@ EOL;
 </form>
 
 </select></td></tr>
-<?php
-if(isset($_COOKIE["rum_min"])) { // check if there's a cookie
-print_r($_COOKIE);
-}
-?> 
 </body>
 </html>
