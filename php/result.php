@@ -12,6 +12,7 @@ if(!isset($_COOKIE)) { // check if there's a cookie
 <html>
 <head>
 	<title>Bostäder</title>
+	<meta charset="utf-8"> 
 	<link rel="stylesheet" href="./jquery.tablesorter/themes/blue/style.css" type="text/css" media="print, projection, screen" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="./jquery.tablesorter/jquery.tablesorter.js"></script>

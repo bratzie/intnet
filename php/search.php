@@ -11,50 +11,48 @@ if (!$link) {
 
 <html>
 <head><title>Folke och Bratzies Hus</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta charset="utf-8"> 
 </head>
 <body>
 
+<!-- Switch to php-setCookie??? 
 
+if (isset($_COOKIE['count'])) {
+    $count = $_COOKIE['count'] + 1;
+} else {
+    $count = 1;
+}
+setcookie('count', $count, time()+3600);
+setcookie("Cart[$count]", $item, time()+3600);
+
+-->
 <script language="javascript">
 function setCookie(form){
-	var rum_min = form.rum_min.value;
-	var rum_max = form.rum_max.value;
-	var area_min = form.area_min.value;
-	var area_max = form.area_max.value;
-	var pris_min = form.pris_min.value;
-	var pris_max = form.pris_max.value;
-	var avgift_min = form.avgift_min.value;
-	var avgift_max = form.avgift_max.value;
-	var lan = form.lan.value;
-	var objekttyp = form.objekttyp.value;
 	
-	document.cookie= "rum_min = "+rum_min+ ";";
-	document.cookie= "rum_max = "+rum_max+" ;";
-	document.cookie= "area_min = "+area_min+" ;";
-	document.cookie= "area_max = "+area_max+" ;";
-	document.cookie= "pris_min = "+pris_min+" ;";
-	document.cookie= "pris_max = "+pris_max+" ;";
-	document.cookie= "avgift_min = "+avgift_min+" ;";
-	document.cookie= "avgift_max = "+avgift_max+" ;";
-	document.cookie= "lan = "+lan+" ;";
-	document.cookie= "objekttyp = "+objekttyp+" ;";
-	
-	alert(dokument.cookie);
+	document.cookie= "rum_min = "+form.rum_min.value+ ";";
+	document.cookie= "rum_max = "+form.rum_max.value+" ;";
+	document.cookie= "area_min = "+form.area_min.value+" ;";
+	document.cookie= "area_max = "+form.area_max.value+" ;";
+	document.cookie= "pris_min = "+form.pris_min.value+" ;";
+	document.cookie= "pris_max = "+form.pris_max.value+" ;";
+	document.cookie= "avgift_min = "+form.avgift_min.value+" ;";
+	document.cookie= "avgift_max = "+form.avgift_max.value+" ;";
+	document.cookie= "lan = "+form.lan.value+" ;";
+	document.cookie= "objekttyp = "+form.objekttyp.value+" ;";
 	
  return true;
 }
 </script>	
 	
 
-<form method="post" name="Välj Bostad" action="result.php" onsubmit="return setCookie(this)">
+<form method="post" name="V�lj Bostad" id="search_form" action="result.php" onsubmit="return setCookie(this)">
 <table>
 	<tr>
 		<td>
 			Antal rum
 		</td>
 		<td>
-<input type=number name="rum_min" min=1 max=10 value=1>
+<input type=number id="rum_min" name="rum_min" min=1 max=10 value=1>
 	</td>
 	<td>
 <input type=number name="rum_max" min=1 max=10 value=10>
@@ -129,15 +127,13 @@ EOL;
 </select></td></tr>
 
 </table>
-<input type=submit value="Sök">
+<input type=submit value="S&#246;k">
 </form>
 
 </select></td></tr>
 <?php
-if(!isset($_COOKIE)) { // check if there's a cookie
-	print_r('no cookie for us? NO BOSTÄDER FOR YOU!');
-} else {
-	print_r($_COOKIE);
+if(isset($_COOKIE["rum_min"])) { // check if there's a cookie
+print_r($_COOKIE);
 }
 ?> 
 </body>
