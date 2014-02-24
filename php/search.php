@@ -8,8 +8,10 @@ if (!$link) {
 }
 ?>
 
+
 <html>
 <head><title>Folke och Bratzies Hus</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 </head>
 <body>
 
@@ -25,9 +27,10 @@ function setCookie(form){
 	var avgift_min = form.avgift_min.value;
 	var avgift_max = form.avgift_max.value;
 	var lan = form.lan.value;
-	$objekttyp = form.objekttyp.value;
-	
-	document.cookie="rum_min="+rum_min+";rum_max="+rum_max+";area_min="+area_min+";area_max="+area_max+";pris_min="+pris_min+";pris_max="+pris_max+";avgift_min="+avgift_min+";avgift_max="+avgift_max+";lan="+lan+";objektyp="+objekttyp+"; expires=Thu, 18 Dec 2019 12:00:00 GMT";
+	var objekttyp = form.objekttyp.value;
+	var cookie = "rum_min = "+rum_min+" ; rum_max = "+rum_max+'; area_min='+area_min+'; area_max='+area_max+'; pris_min='+pris_min+'; pris_max='+pris_max+'; avgift_min='+avgift_min+'; avgift_max='+avgift_max+'; lan='+lan+'; objektyp='+objekttyp+'; expires=Wed, 18 Dec 2019 12:00:00 GMT';
+	document.cookie= cookie;
+	alert(dokument.cookie);
 	
  return true;
 }
@@ -41,10 +44,10 @@ function setCookie(form){
 			Antal rum
 		</td>
 		<td>
-<input type=number name="rum_min" min=1 max=10>
+<input type=number name="rum_min" min=1 max=10 value=1>
 	</td>
 	<td>
-<input type=number name="rum_max" min=1 max=10>
+<input type=number name="rum_max" min=1 max=10 value=1>
 	</td>
 </tr>
 	<tr>
@@ -52,10 +55,10 @@ function setCookie(form){
 			Bostads Areas
 		</td>
 		<td>
-<input type=number name="area_min" min=1 max=1000>
+<input type=number name="area_min" min=1 max=1000 value=1>
 	</td>
 	<td>
-<input type=number name="area_max" min=1 max=1000>
+<input type=number name="area_max" min=1 max=1000 value=1>
 	</td>
 </tr>
 	<tr>
@@ -63,10 +66,10 @@ function setCookie(form){
 			Pris
 		</td>
 		<td>
-<input type=number name="pris_min" min=1 max=1000000000>
+<input type=number name="pris_min" min=1 max=1000000000 value=1>
 	</td>
 	<td>
-<input type=number name="pris_max" min=1 max=1000000000>
+<input type=number name="pris_max" min=1 max=1000000000 value=1>
 	</td>
 </tr>
 	<tr>
@@ -74,10 +77,10 @@ function setCookie(form){
 			Avgift
 		</td>
 		<td>
-<input type=number name="avgift_min" min=1 max=100000>
+<input type=number name="avgift_min" min=1 max=100000 value=1>
 	</td>
 	<td>
-<input type=number name="avgift_max" min=1 max=100000> 
+<input type=number name="avgift_max" min=1 max=100000 value=1> 
 	</td>
 </tr>
 <tr>
@@ -85,7 +88,6 @@ function setCookie(form){
 Län</td>
 <td><select name = "lan">
 <?php
-
 $sqlPopulateLan='SELECT lan FROM bostader group by lan';
 
 $rs=$link->query($sqlPopulateLan);
@@ -97,12 +99,10 @@ EOL;
 }
 ?> 
 
-</select></td></tr>
-
 <tr>
 <td>
 Object Typ</td>
-<td><select name = "objecttyp">
+<td><select name = "objekttyp">
 <?php
 
 $sqlPopulateobjekttyp='SELECT objekttyp FROM bostader group by objekttyp';
@@ -121,5 +121,14 @@ EOL;
 </table>
 <input type=submit value="Sök">
 </form>
+
+</select></td></tr>
+<?php
+if(!isset($_COOKIE)) { // check if there's a cookie
+	print_r('no cookie for us? NO BOSTÄDER FOR YOU!');
+} else {
+	print_r($_COOKIE);
+}
+?> 
 </body>
 </html>
