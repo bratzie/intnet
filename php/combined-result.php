@@ -1,12 +1,12 @@
 <?php
 // check if we have all the parameters from the form
-if(isset($_POST['lan']) && isset($_POST['objekttyp']) && isset($_POST['rum_min']) && isset($_POST['rum_max']) && 
-    isset($_POST['area_min']) && isset($_POST['area_max']) && isset($_POST['pris_min']) && isset($_POST['pris_max']) && 
-    isset($_POST['avgift_min']) && isset($_POST['avgift_max'])) {
+if(isset($_GET['lan']) && isset($_GET['objekttyp']) && isset($_GET['rum_min']) && isset($_GET['rum_max']) && 
+    isset($_GET['area_min']) && isset($_GET['area_max']) && isset($_GET['pris_min']) && isset($_GET['pris_max']) && 
+    isset($_GET['avgift_min']) && isset($_GET['avgift_max'])) {
 
 	// premade statement
-    $query="SELECT * FROM bostader WHERE lan='$_POST[lan]' AND objekttyp='$_POST[objekttyp]' AND rum>=$_POST[rum_min] AND rum<=$_POST[rum_max] AND 
-    area>=$_POST[area_min] AND area<=$_POST[area_max] AND pris>=$_POST[pris_min] AND pris<=$_POST[pris_max] AND avgift>=$_POST[avgift_min] AND avgift<=$_POST[avgift_max]";
+    $query="SELECT * FROM bostader WHERE lan='$_GET[lan]' AND objekttyp='$_GET[objekttyp]' AND rum>=$_GET[rum_min] AND rum<=$_GET[rum_max] AND 
+    area>=$_GET[area_min] AND area<=$_GET[area_max] AND pris>=$_GET[pris_min] AND pris<=$_GET[pris_max] AND avgift>=$_GET[avgift_min] AND avgift<=$_GET[avgift_max]";
     // establish link to database
     $link = new mysqli("mysql-vt2013.csc.kth.se:3306/matfol","matfoladmin","FU0B1klD", "matfol");
 

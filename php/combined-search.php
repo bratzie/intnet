@@ -28,13 +28,15 @@ if (!$link) {
                 xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
             }
             xmlhttp.onreadystatechange=function() {
+                console.log(xmlhttp.responseText);
                 if (xmlhttp.readyState==4 && xmlhttp.status==200) {
                     document.getElementById("theTable").innerHTML=xmlhttp.responseText;
                 }
             }
-            xmlhttp.open("post","combined-result.php",true);
-            xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-            xmlhttp.send("rum_min="+form.rum_min.value+"&rum_max="+form.rum_max.value+"&area_min="+form.area_min.value+"&area_max="+form.area_max.value+"&pris_min="+form.pris_min.value+"&pris_max="+form.pris_max.value+"&avgift_min="+form.avgift_min.value+"&avgift_max="+form.avgift_max.value+"&lan="+form.lan.value+"&objekttyp="+form.objekttyp.value);
+            //console.log("combined-result.php?"+"rum_min="+form.rum_min.value+"&rum_max="+form.rum_max.value+"&area_min="+form.area_min.value+"&area_max="+form.area_max.value+"&pris_min="+form.pris_min.value+"&pris_max="+form.pris_max.value+"&avgift_min="+form.avgift_min.value+"&avgift_max="+form.avgift_max.value+"&lan="+form.lan.value+"&objekttyp="+form.objekttyp.value);
+            xmlhttp.open("get","combined-result.php?"+"rum_min="+form.rum_min.value+"&rum_max="+form.rum_max.value+"&area_min="+form.area_min.value+"&area_max="+form.area_max.value+"&pris_min="+form.pris_min.value+"&pris_max="+form.pris_max.value+"&avgift_min="+form.avgift_min.value+"&avgift_max="+form.avgift_max.value+"&lan="+form.lan.value+"&objekttyp="+form.objekttyp.value,true);
+            // xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+            xmlhttp.send();
         }
     </script>
 
@@ -61,7 +63,7 @@ if (!$link) {
 
     <!-- Display form -->
     <h2>Mattias och Bratt - Bostadshaff</h2>
-    <form method="post" name="Välj Bostad" onsubmit="updateTable(this)">
+    <form method="get" name="Välj Bostad">
     <table>
         <tr>
             <td>Rum</td>
@@ -163,6 +165,7 @@ EOL;
         </tr>
     </table>
     <input type=submit value="S&#246;k">
+    <button onclick="updateTable(this.parentNode)">Sök 2</button>
     </form>
 
     <!-- Display results -->
