@@ -11,17 +11,16 @@ if(!isset($_COOKIE)) { // check if there's a cookie
 <!DOCTYPE html>
 <html>
 <head>
-	<title>bostäder</title>
+	<title>Bostäder</title>
 	<link rel="stylesheet" href="./jquery.tablesorter/themes/blue/style.css" type="text/css" media="print, projection, screen" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="./jquery.tablesorter/jquery.tablesorter.js"></script>
 
 	<script type="text/javascript">
     $(document).ready(function() { 
-    	// sort table on the fifth column, ascending.
+    	// sort table on the sixth (price) column, ascending.
         $("#myTable").tablesorter( {sortList: [[5,0]]} ); 
-    } 
-    );
+    } );
     </script>
 </head>
 <body>
@@ -56,11 +55,24 @@ if(!isset($_COOKIE)) { // check if there's a cookie
 				}
                 // get data from db
                 $result=$link->query($query) or trigger_error($mysqli->error." [$query]");;
-                while ($row = $result->fetch_array()) {
+                while ($row = $result->fetch_array(MYSQLI_BOTH)) {
+                	/*
                 	// construct a table row from the db result
     	            echo "<tr><td>", $row["lan"], "</td><td>", $row["objekttyp"], "</td><td>", 
     	            $row["adress"], "</td><td>", $row["area"], "</td><td>", $row["rum"], "</td><td>", 
     	            $row["pris"], "</td><td>", $row["avgift"], "</td></tr>\n";
+    	            */
+
+    	            // alternate way - looks better, dot is for concatenation in PHP.
+    	            echo "<tr>";
+    	            echo "<td>" . $row['lan'] . "</td>";
+    	            echo "<td>" . $row['objekttyp'] . "</td>";
+    	            echo "<td>" . $row['adress'] . "</td>";
+    	            echo "<td>" . $row['area'] . "</td>";
+    	            echo "<td>" . $row['rum'] . "</td>";
+    	            echo "<td>" . $row['pris'] . "</td>";
+    	            echo "<td>" . $row['avgift'] . "</td>";
+    	            echo "</tr>";
         	    }
         	    /* free result set */
 				$result->free();
