@@ -57,7 +57,7 @@ if (!$link) {
                 console.log(returned_data);
             },
             complete: function () {
-                $("#myTable").tablesorter( {sortList: [[5,0]]} );
+                $("#myTable").tablesorter();
             }
         });
     }
