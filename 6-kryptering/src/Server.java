@@ -49,8 +49,8 @@ public class Server{
                     try {
                         socket.startHandshake();
                     } catch (SSLException e) {
-                        System.out.println("Unrecognized SSL message, plaintext connection?");
-                        System.out.println("Closing connection, listening for more juicy safe stuff.");
+                        System.out.println("Unrecognized SSL message, plaintext connection? " +
+                                "Closing connection, listening for more juicy safe stuff.");
                         socket.close();
                         continue;
                     }
@@ -63,7 +63,11 @@ public class Server{
                     out.write("Content-Type: text/html");
                     out.newLine();
                     out.newLine();
-                    out.write("<html><body><h1>Hello world!</h1></body></html>");
+                    out.write("<html><body>");
+                    out.write("<span style=\"text-decoration: blink\">");
+                    out.write("<h1 style=\"color: red; text-align: center; font-family: sans-serif;\">Hello world!</h1>");
+                    out.write("</span>");
+                    out.write("</body></html>");
                     out.newLine();
 
                     out.flush();
