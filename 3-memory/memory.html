@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Epic Awesome Memory Game</title>
+
+		<meta charset="utf-8"
+		name="author" content="Folke#Bratt"
+		name="description" content="The best memory game ever made."
+		name="keywords" content="fun, game, memory, blonde, girl, sweden" />
+
+		<!-- FONTS -->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="style.css" />
+
+		<!-- JS -->
+		<script type="text/javascript" src="memory.js"></script>	
+	</head>
+
+	<body onload="assignPictures()">
+		<span class="p1score" id="p1name">Player 1:</span>
+		<span class="p1score" id="p1score">0</span>
+		<span class="p2score" id="p2score">0</span>
+		<span class="p2score" id="p2name">Player 2:</span>
+		<div class="centered">
+			<table border="0" padding="10" margin="10">
+				<tr>
+					<td><img height="160px" width="160px" id="1" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="2" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="3" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="4" onclick="clickWord(this)"></td>
+				</tr>
+				<tr>
+					<td><img height="160px" width="160px" id="5" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="6" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="7" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="8" onclick="clickWord(this)"></td>
+				</tr>
+				<tr>
+					<td><img height="160px" width="160px" id="9" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="10" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="11" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="12" onclick="clickWord(this)"></td>
+				</tr>
+				<tr>
+					<td><img height="160px" width="160px" id="13" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="14" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="15" onclick="clickWord(this)"></td>
+					<td><img height="160px" width="160px" id="16" onclick="clickWord(this)"></td>
+				</tr>
+			</table>
+			<button class="centered" onclick="assignPictures()">RESTART</button>
+		</div>
+	</body>
+</html>
