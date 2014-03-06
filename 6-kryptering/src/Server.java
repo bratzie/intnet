@@ -1,9 +1,6 @@
-import com.sun.tools.javac.util.Context;
-
 import javax.net.ssl.*;
 import java.io.*;
 import java.security.*;
-import java.security.cert.*;
 
 public class Server{
 
@@ -11,7 +8,6 @@ public class Server{
         // init stuff
         KeyStore ks;
         InputStream is;
-        OutputStream out;
 
         try {
             // get KeyStore
@@ -21,7 +17,7 @@ public class Server{
 
             assert ks != null;
             // load key with our storepass
-            ks.load(is,"rootroot".toCharArray());
+            ks.load(is, "rootroot".toCharArray());
 
             // create a kmf with default algorithm
             KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm()); //SunX509?
@@ -35,36 +31,49 @@ public class Server{
             SSLServerSocketFactory factory = context.getServerSocketFactory();
             SSLServerSocket serverSocket = (SSLServerSocket) factory.createServerSocket(4711);
 
-            // set print selected cipher
-            String[] cipher = {"SSL_DH_anon_WITH_RC4_128_MD5"};
-            serverSocket.setEnabledCipherSuites(cipher);
+            // input all of the ciphers!
+            serverSocket.setEnabledCipherSuites(factory.getSupportedCipherSuites());
 
+            /*
             for(int i = 0; i < serverSocket.getEnabledCipherSuites().length; i++)
                 System.out.println(serverSocket.getEnabledCipherSuites()[i]);
+            */
 
-            SSLSocket socket = (SSLSocket) serverSocket.accept();
-            socket.setEnabledCipherSuites(cipher);
-            try {
-                socket.startHandshake();
+            SSLSocket socket = null;
+            BufferedWriter out = null;
 
-                out = socket.getOutputStream();
+            while (true) {
+                try {
+                    socket = (SSLSocket) serverSocket.accept();
 
-                out.write("Sallad".getBytes());
+                    try {
+                        socket.startHandshake();
+                    } catch (SSLException e) {
+                        System.out.println("Unrecognized SSL message, plaintext connection?");
+                        System.out.println("Closing connection, listening for more juicy safe stuff.");
+                        socket.close();
+                        continue;
+                    }
 
-                out.flush();
+                    out = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 
-                BufferedReader infil = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                String rad = null;
+                    System.out.println("Client " + socket.hashCode() + " connected. Writing message 'Hello World'");
+                    out.write("HTTP/1.0 200 OK");
+                    out.newLine();
+                    out.write("Content-Type: text/html");
+                    out.newLine();
+                    out.newLine();
+                    out.write("<html><body><h1>Hello world!</h1></body></html>");
+                    out.newLine();
 
-                while( (rad=infil.readLine()) != null)
-                    System.out.println(rad);
-
-                infil.close();
-            } catch (SSLHandshakeException e) {
-                e.printStackTrace();
-            } finally {
-                if (socket != null)
-                    socket.close();
+                    out.flush();
+                    out.close();
+                } catch (SSLHandshakeException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (socket != null)
+                        socket.close();
+                }
             }
         } catch (Exception e) {
             // one catch to rule them all
